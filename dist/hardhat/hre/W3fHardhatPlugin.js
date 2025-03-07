@@ -32,13 +32,13 @@ class Web3FunctionHardhat {
         this.provider = new provider_1.EthersProviderWrapper(_hre.network.provider);
     }
     run(operation, override) {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         return __awaiter(this, void 0, void 0, function* () {
             const userArgs = (_a = override === null || override === void 0 ? void 0 : override.userArgs) !== null && _a !== void 0 ? _a : this.w3f.userArgs;
             const storage = (_b = override === null || override === void 0 ? void 0 : override.storage) !== null && _b !== void 0 ? _b : this.w3f.storage;
-            const secrets = this.w3f.secrets;
+            const secrets = (_c = override === null || override === void 0 ? void 0 : override.secrets) !== null && _c !== void 0 ? _c : this.w3f.secrets;
             const debug = this.hre.config.w3f.debug;
-            const log = (_c = override === null || override === void 0 ? void 0 : override.log) !== null && _c !== void 0 ? _c : this.w3f.log;
+            const log = (_d = override === null || override === void 0 ? void 0 : override.log) !== null && _d !== void 0 ? _d : this.w3f.log;
             const buildRes = yield builder_1.Web3FunctionBuilder.build(this.w3f.path, { debug });
             if (!buildRes.success)
                 throw new Error(`Fail to build web3Function: ${buildRes.error}`);

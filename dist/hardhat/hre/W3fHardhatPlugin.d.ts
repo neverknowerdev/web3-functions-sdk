@@ -19,6 +19,9 @@ export declare class Web3FunctionHardhat {
         };
         userArgs?: Web3FunctionUserArgs;
         log?: Log;
+        secrets?: {
+            [key: string]: string;
+        };
     }): Promise<Web3FunctionExecSuccess<T>>;
     deploy(): Promise<string>;
     getGelatoArgs(gasPriceOverride?: string): Promise<{
