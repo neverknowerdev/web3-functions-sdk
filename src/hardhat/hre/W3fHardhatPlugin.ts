@@ -52,12 +52,13 @@ export class Web3FunctionHardhat {
     override?: {
       storage?: { [key: string]: string };
       userArgs?: Web3FunctionUserArgs;
-      log?: Log
+      log?: Log,
+      secrets?: { [key: string]: string }
     }
   ): Promise<Web3FunctionExecSuccess<T>> {
     const userArgs = override?.userArgs ?? this.w3f.userArgs;
     const storage = override?.storage ?? this.w3f.storage;
-    const secrets = this.w3f.secrets;
+    const secrets = override?.secrets ?? this.w3f.secrets;
     const debug = this.hre.config.w3f.debug;
     const log = override?.log ?? this.w3f.log;
 
